@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useThemeStore } from '../store/useThemeStore';
 
