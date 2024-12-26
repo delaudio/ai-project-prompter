@@ -1,14 +1,20 @@
-import React, { memo } from 'react';
-import { Handle, Position } from 'reactflow';
-import { FileIcon, FolderIcon, ChevronRight, ChevronDown, Copy } from 'lucide-react';
-import { useFileStore } from '../../store/useFileStore';
-import { getFolderContent } from '../../utils/fileUtils';
+import React, { memo } from "react";
+import { Handle, Position } from "reactflow";
+import {
+  FileIcon,
+  FolderIcon,
+  ChevronRight,
+  ChevronDown,
+  Copy,
+} from "lucide-react";
+import { useFileStore } from "../../store/useFileStore";
+import { getFolderContent } from "../../utils/fileUtils";
 
 interface FileNodeProps {
   data: {
     id: string;
     name: string;
-    type: string;
+    type: "folder" | "file";
     metadata?: {
       size: number;
       modified: Date;
@@ -17,9 +23,10 @@ interface FileNodeProps {
 }
 
 export const FileNode = memo(({ data }: FileNodeProps) => {
-  const isFolder = data.type === 'folder';
+  const isFolder = data.type === "folder";
   const Icon = isFolder ? FolderIcon : FileIcon;
-  const { toggleFolder, isExpanded, setSelectedFile, appendToPrompt } = useFileStore();
+  const { toggleFolder, isExpanded, setSelectedFile, appendToPrompt } =
+    useFileStore();
   const expanded = isExpanded(data.id);
 
   const handleClick = (e: React.MouseEvent) => {
@@ -27,7 +34,13 @@ export const FileNode = memo(({ data }: FileNodeProps) => {
     if (isFolder) {
       toggleFolder(data.id);
     } else {
-      setSelectedFile(data);
+      setSelectedFile({
+        ...data,
+        path: "",
+        metadata: data.metadata
+          ? { ...data.metadata, type: data.type }
+          : undefined,
+      });
     }
   };
 
@@ -38,7 +51,7 @@ export const FileNode = memo(({ data }: FileNodeProps) => {
   };
 
   return (
-    <div 
+    <div
       className="px-4 py-2 shadow-lg rounded-md bg-white border border-gray-200 cursor-pointer hover:bg-gray-50"
       onClick={handleClick}
     >
@@ -46,10 +59,11 @@ export const FileNode = memo(({ data }: FileNodeProps) => {
       <div className="flex items-center gap-2">
         {isFolder && (
           <>
-            {expanded ? 
-              <ChevronDown className="w-4 h-4 text-gray-500" /> : 
+            {expanded ? (
+              <ChevronDown className="w-4 h-4 text-gray-500" />
+            ) : (
               <ChevronRight className="w-4 h-4 text-gray-500" />
-            }
+            )}
             <button
               onClick={handleCopyFolder}
               className="p-1 hover:bg-gray-100 rounded-full transition-colors"
