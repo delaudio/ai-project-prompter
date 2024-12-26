@@ -18,7 +18,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "prepublishOnly": "npm run build",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "prompter": "node ./dist/bin/ai-project-prompter.js"
   },
