@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark-flow {
+  background-color: #111827 !important;
+}
+
+.dark-flow .react-flow__edge path {
+  stroke: #4B5563 !important;
+}
+
+.dark-flow .react-flow__handle {
+  background-color: #4B5563 !important;
+}
+
+.dark-controls {
+  background-color: #1F2937 !important;
+  border-color: #374151 !important;
+}
+
+.dark-controls button {
+  background-color: #1F2937 !important;
+  border-color: #374151 !important;
+  color: #9CA3AF !important;
+}
+
+.dark-controls button:hover {
+  background-color: #374151 !important;
+}
+
+.dark-minimap {
+  background-color: #1F2937 !important;
+  border-color: #374151 !important;
+}
+
+.dark-minimap .react-flow__minimap-mask {
+  fill: rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-minimap .react-flow__minimap-node {
+  fill: #4B5563 !important;
+  stroke: none !important;
+}

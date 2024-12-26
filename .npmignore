@@ -1,0 +1,38 @@
+# Source
+src/
+public/
+
+# Config files
+.eslintrc
+.prettierrc
+tsconfig.json
+tsconfig.*.json
+vite.config.ts
+vitest.config.ts
+
+# Tests
+**/__tests__/
+**/*.test.*
+coverage/
+
+# Development
+.vscode/
+.idea/
+.git/
+.github/
+.gitignore
+.env*
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build tools
+node_modules/
+
+# Demo/Examples
+examples/
+demo/
+
+# Documentation source
+docs/
