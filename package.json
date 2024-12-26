@@ -6,6 +6,9 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "ai-project-prompter": "./dist/bin/ai-project-prompter.js"
+  },
   "files": [
     "dist"
   ],
@@ -16,13 +19,18 @@
     "preview": "vite preview",
     "prepublishOnly": "npm run build",
     "test": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "prompter": "node ./dist/bin/ai-project-prompter.js"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
+    "chalk": "^5.3.0",
+    "chokidar": "^3.6.0",
+    "commander": "^12.0.0",
+    "express": "^4.18.3",
     "lucide-react": "^0.344.0",
     "reactflow": "^11.10.4",
     "zustand": "^4.5.2"
@@ -32,6 +40,8 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.24",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
@@ -56,12 +66,13 @@
     "file-explorer",
     "react",
     "typescript",
-    "project-files"
+    "project-files",
+    "cli"
   ],
-  "author": "StackBlitz",
+  "author": "Federico Del Gaudio",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stackblitz/ai-project-prompter"
+    "url": "https://github.com/delaudio/ai-project-prompter"
   }
 }
