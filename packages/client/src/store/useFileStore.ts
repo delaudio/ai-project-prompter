@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { FileNode } from '../types/FileTypes';
+import { FileNode } from '../../../../src/types/FileTypes';
 import { BrowserFileSystemAdapter } from '../services/adapters/browserAdapter';
 
 interface FileStore {

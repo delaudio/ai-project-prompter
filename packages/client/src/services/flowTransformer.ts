@@ -1,4 +1,4 @@
-import { FileNode, FlowNode, FlowEdge } from '../types/FileTypes';
+import { FileNode, FlowNode, FlowEdge } from '../../../../src/types/FileTypes';
 import { useFileStore } from '../store/useFileStore';
 
 const VERTICAL_SPACING = 100;

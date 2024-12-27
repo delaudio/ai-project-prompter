@@ -1,6 +1,6 @@
 export interface FileNode {
   id: string;
-  type: 'file' | 'folder';
+  type: "file" | "folder";
   name: string;
   path: string;
   children?: FileNode[];
@@ -23,5 +23,5 @@ export interface FlowEdge {
   id: string;
   source: string;
   target: string;
-  type: 'default' | 'hierarchy';
+  type: "default" | "hierarchy";
 }

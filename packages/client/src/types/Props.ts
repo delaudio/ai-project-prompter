@@ -1,4 +1,4 @@
-import { FileNode } from './FileTypes';
+import { FileNode } from '../../../../src/types/FileTypes';
 
 export interface ProjectPrompterProps {
   /**
