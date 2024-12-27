@@ -2,9 +2,12 @@ import { describe, it, expect, vi } from "vitest";
 import { ImportProcessor } from "../processor";
 
 describe("ImportProcessor", () => {
+  const mockAdapter = { readDirectory: vi.fn() };
   const mockResolver = {
     resolveImport: vi.fn(),
     getFileContent: vi.fn(),
+    extensions: ['.ts', '.js'],
+    adapter: mockAdapter
   };
 
   beforeEach(() => {
@@ -25,7 +28,7 @@ describe("ImportProcessor", () => {
       Promise.resolve(path)
     );
 
-    const processor = new ImportProcessor(mockResolver as any, { maxDepth: 1 });
+    const processor = new ImportProcessor(mockResolver, { maxDepth: 1 });
     const result = await processor.processFile("root");
 
     expect(result).toContain("// root\n");
@@ -46,7 +49,7 @@ describe("ImportProcessor", () => {
       Promise.resolve(path)
     );
 
-    const processor = new ImportProcessor(mockResolver as any);
+    const processor = new ImportProcessor(mockResolver);
     const result = await processor.processFile("main.ts");
 
     expect(result).toContain("// main.ts");

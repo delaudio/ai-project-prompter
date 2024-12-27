@@ -4,8 +4,8 @@ const DEFAULT_EXTENSIONS = ['.ts', '.tsx', '.js', '.jsx'];
 
 export class ImportResolver {
   constructor(
-    private adapter: FileSystemAdapter,
-    private extensions: string[] = DEFAULT_EXTENSIONS
+    public adapter: FileSystemAdapter,
+    public extensions: string[] = DEFAULT_EXTENSIONS
   ) {}
 
   async resolveImport(basePath: string, importPath: string): Promise<string | null> {

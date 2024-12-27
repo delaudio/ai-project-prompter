@@ -6,7 +6,7 @@ export class ImportProcessor {
   private processedFiles: Set<string> = new Set();
 
   constructor(
-    private resolver: ImportResolver,
+    public resolver: ImportResolver,
     private options: ImportParserOptions = {}
   ) {
     this.options = {
